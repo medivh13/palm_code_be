@@ -9,7 +9,7 @@ I use existing libs and tools :
  - firebase storage for media's storage
 
 ## For setup after cloning/unzip the project:
-> cd wallet
+> cd palm_code_be
 > go mod tidy
 > make changes in the .env file using your postgresql and firebase storage bucket
 > add your firebase storage admin sdk file in to this root project
