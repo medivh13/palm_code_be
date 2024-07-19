@@ -22,8 +22,8 @@ const (
 	Create = `INSERT INTO pages (title, slug, banner_media, content, created_by)
 		values ($1, $2, $3, $4, $5)`
 
-	GetByID = `SELECT id, title, slug, banner_media, content FROM pages WHERE id=$1 and created_by = $2`
-	Get     = `SELECT count(id) over() as total_data, id, title, slug, banner_media, content FROM pages 
+	GetByID = `SELECT id, title, slug, banner_media, content, created_at, updated_at FROM pages WHERE id=$1 and created_by = $2`
+	Get     = `SELECT count(id) over() as total_data, id, title, slug, banner_media, content, created_at, updated_at FROM pages 
 	WHERE created_by=$1
 	order by id asc LIMIT $2 OFFSET $3
 	`

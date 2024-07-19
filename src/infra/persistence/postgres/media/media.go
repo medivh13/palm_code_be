@@ -19,8 +19,8 @@ const (
 	Create = `INSERT INTO media (url, type, created_by)
 		values ($1, $2, $3)`
 
-	GetByID = `SELECT id, url, type FROM media WHERE id=$1 and created_by = $2`
-	Get     = `SELECT count(id) over() as total_data, id, url, type FROM media 
+	GetByID = `SELECT id, url, type, created_at, updated_at FROM media WHERE id=$1 and created_by = $2`
+	Get     = `SELECT count(id) over() as total_data, id, url, type, created_at, updated_at FROM media 
 	WHERE created_by=$1
 	order by id asc LIMIT $2 OFFSET $3
 	`

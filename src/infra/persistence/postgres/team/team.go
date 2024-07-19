@@ -22,8 +22,8 @@ const (
 	Create = `INSERT INTO team (name, role, bio, profile_picture, created_by)
 		values ($1, $2, $3, $4, $5)`
 
-	GetByID = `SELECT id, name, role, bio, profile_picture FROM team WHERE id=$1 and created_by = $2`
-	Get     = `SELECT count(id) over() as total_data, id, name, role, bio, profile_picture FROM team 
+	GetByID = `SELECT id, name, role, bio, profile_picture, created_at, updated_at FROM team WHERE id=$1 and created_by = $2`
+	Get     = `SELECT count(id) over() as total_data, id, name, role, bio, profile_picture, created_at, updated_at FROM team 
 	WHERE created_by=$1
 	order by id asc LIMIT $2 OFFSET $3
 	`
