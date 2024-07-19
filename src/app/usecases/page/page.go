@@ -66,7 +66,7 @@ func (uc *pageUseCase) Update(data *dto.PageUpdateReqDTO) error {
 	err := uc.Repo.Update(data)
 
 	if err != nil {
-		return nil
+		return err
 	}
 
 	return nil

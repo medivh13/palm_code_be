@@ -24,22 +24,6 @@ const (
 	WHERE created_by=$1
 	order by id asc LIMIT $2 OFFSET $3
 	`
-	QueryLockForUpdate = `
-		SELECT 1
-		FROM media	
-		WHERE id = $1
-		FOR UPDATE
-	`
-
-	Update = `
-		Update media SET url = $1, type = $2
-		updated_at = CURRENT_TIMESTAMP, 
-		updated_by = $3 WHERE id = $4
-	`
-
-	Delete = `
-		Delete from media where id = $1
-	`
 )
 
 var statement PreparedStatement
@@ -48,7 +32,6 @@ type PreparedStatement struct {
 	create  *sqlx.Stmt
 	get     *sqlx.Stmt
 	getByID *sqlx.Stmt
-	delete  *sqlx.Stmt
 }
 
 type mediaRepo struct {
@@ -77,7 +60,6 @@ func InitPreparedStatement(m *mediaRepo) {
 		create:  m.Preparex(Create),
 		get:     m.Preparex(Get),
 		getByID: m.Preparex(GetByID),
-		delete:  m.Preparex(Delete),
 	}
 }
 
