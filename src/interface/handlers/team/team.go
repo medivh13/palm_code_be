@@ -168,6 +168,10 @@ func (h *teamHandler) GetByID(w http.ResponseWriter, r *http.Request) {
 	data, err := h.usecase.GetByID(&getDTO)
 	if err != nil {
 		log.Println(err)
+		if err.Error() == "data not found" {
+			h.response.HttpError(w, common_error.NewError(common_error.STATUS_PAGE_NOT_FOUND, err))
+			return
+		}
 		h.response.HttpError(w, common_error.NewError(common_error.FAILED_RETRIEVE_DATA, err))
 		return
 	}

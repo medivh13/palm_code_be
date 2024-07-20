@@ -1,6 +1,7 @@
 package team
 
 import (
+	"errors"
 	dto "palm_code_be/src/app/dto/team"
 	"palm_code_be/src/infra/helper"
 	"palm_code_be/src/interface/response"
@@ -158,6 +159,10 @@ func (p *teamRepo) GetByID(data *dto.TeamGetReqByIDDTO) (*dto.TeamRespDTO, error
 
 	if err != nil {
 		return nil, err
+	}
+
+	if len(resultData) == 0 {
+		return nil, errors.New("data not found")
 	}
 
 	return dto.ToReturnTeam(resultData[0]), nil

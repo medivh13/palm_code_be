@@ -1,6 +1,7 @@
 package media
 
 import (
+	"errors"
 	dto "palm_code_be/src/app/dto/media"
 	"palm_code_be/src/interface/response"
 
@@ -104,6 +105,10 @@ func (p *mediaRepo) GetByID(data *dto.MediaGetReqByIDDTO) (*dto.MediaRespDTO, er
 
 	if err != nil {
 		return nil, err
+	}
+
+	if len(resultData) == 0 {
+		return nil, errors.New("data not found")
 	}
 
 	return dto.ToReturnMedia(resultData[0]), nil

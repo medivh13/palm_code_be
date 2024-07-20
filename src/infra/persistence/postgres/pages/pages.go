@@ -1,6 +1,7 @@
 package pages
 
 import (
+	"errors"
 	dto "palm_code_be/src/app/dto/pages"
 	"palm_code_be/src/infra/helper"
 	"palm_code_be/src/interface/response"
@@ -160,6 +161,10 @@ func (p *PageRepo) GetByID(data *dto.PagesGetReqByIDDTO) (*dto.PageRespDTO, erro
 
 	if err != nil {
 		return nil, err
+	}
+
+	if len(resultData) == 0 {
+		return nil, errors.New("data not found")
 	}
 
 	return dto.ToReturnPage(resultData[0]), nil
