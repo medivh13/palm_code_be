@@ -16,15 +16,15 @@ I use existing libs and tools :
 
 
 ## for db table :
-> in folder db, there is a .sql file with the create table command. I use postgresql for this case. you can run the command in your sql editor page
+ - in folder db, there are some .sql files with the create table command. I use postgresql for this case. you can run the command in your sql editor page
 
 ## to do a unit test :
-> i've made several unit testing in usecases/business layer
-> go to the each usecase package that you want to testing, then run a command "go test"
-> you can see the coverage testing in each usecase package by open the project with vscode, choose the testing file, Right click anywhere on the file display, then choose "Go:Toogle Test Coverage in Current Package"
+ - i've made several unit testing in usecases/business layer
+ - go to the each usecase package that you want to testing, then run a command "go test"
+ - you can see the coverage testing in each usecase package by open the project with vscode, choose the testing file, Right click anywhere on the file display, then choose "Go:Toogle Test Coverage in Current Package"
 
 ## to run the project
-after set the .env file with your database and firebase credential, then stay still in root directory, then do "go run main.go" in terminal
+ - after set the .env file with your database and firebase credential, then stay still in root directory, then do "go run main.go" in terminal
 
 ### API Endpoints
 - **register**
