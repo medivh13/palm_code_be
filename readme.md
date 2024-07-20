@@ -9,18 +9,19 @@ I use existing libs and tools :
  - firebase storage for media's storage
 
 ## For setup after cloning/unzip the project:
-> cd palm_code_be
-> go mod tidy
-> make changes in the .env file using your postgresql and firebase storage bucket
-> add your firebase storage admin sdk file in to this root project
+- cd palm_code_be
+- go mod tidy
+- add your firebase storage admin sdk file.json in to this root project
+- make changes in the .env file using your postgresql and your firebase storage bucket and firebase admin_sdk_path_to_your_root_project
+
 
 ## for db table :
 > in folder db, there is a .sql file with the create table command. I use postgresql for this case. you can run the command in your sql editor page
 
 ## to do a unit test :
-> i've made several unit testing but just in usecases layer
+> i've made several unit testing in usecases/business layer
 > go to the each usecase package that you want to testing, then run a command "go test"
-> you can see the coverage testing in each usecase package by open the project with vscode, choose the testing file, right click then choose "Go:Toogle Test Coverage in Current Package"
+> you can see the coverage testing in each usecase package by open the project with vscode, choose the testing file, Right click anywhere on the file display, then choose "Go:Toogle Test Coverage in Current Package"
 
 ## to run the project
 after set the .env file with your database and firebase credential, then stay still in root directory, then do "go run main.go" in terminal
@@ -86,7 +87,7 @@ curl --location --request PUT 'http://localhost:8080/api/page' \
 - **page Get**
 ```
 curl --location 'http://localhost:8080/api/page?page=1&perPage=10' \
---header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE3MjEyOTY5NjJ9.9HgcxgZM_ATRnIOaye4zDFGvIvHzXbzBgDeH3-6hriE'
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE3MjE0MDAxNTJ9.lywbBO-8PSdFzaOCSt81jKxAFascTr0PBukOVBFhZJY'
 ```
 
 - **page Get By ID**
